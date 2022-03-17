@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 import "./NavBar.css"
+import { FaShoppingCart } from "react-icons/fa";
 
 function NavBar() {
     return(
@@ -12,6 +13,7 @@ function NavBar() {
                 <li><Button variant="contained">Productos</Button></li>
                 <li><Button variant="outlined">Contacto</Button></li>
             </ul>
+            <Button><FaShoppingCart/></Button>
         </header>
     )
 }
