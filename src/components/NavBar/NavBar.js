@@ -6,7 +6,9 @@ import CartWidget from '../CartWidget/CartWidget'
 function NavBar() {
     return(
         <header className='main-header'>
-            <img src="react-aguri/src/img/inter.png" className="container-logo" alt="logo"></img>
+            <div className="container-logo">
+            <img src="inter.png" alt="logo"></img>
+            </div>
             <ul className='navbar'>
                 <li><Button variant="contained">Home</Button></li>
                 <li><Button variant="outlined">Nosotros</Button></li>
