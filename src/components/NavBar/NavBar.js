@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '@mui/material/Button';
-import Logo from '././img/inter.png'
+import Logo from './././img/inter.png'
 import "./NavBar.css"
 import CartWidget from '../CartWidget/CartWidget'
 
