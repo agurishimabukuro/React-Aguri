@@ -2,14 +2,14 @@ import React from 'react';
 import {useState} from 'react';
 import Button from '@mui/material/Button';
 
-export default function Product(props) {
+export const Product = ({title, price, size, id, stock}) => {
 
     return ( <div className = "product-item" >
-        <h2> {props.title} </h2> 
-        <p> Precio: $ {props.price} </p> 
-        <p> Tamaño: {props.size} </p> 
+        <h2> {title} </h2> 
+        <p> Precio: $ {price} </p> 
+        <p> Tamaño: {size} </p> 
 
-        <ItemCount initial={1} stock={props.stock}/>
+        <ItemCount initial={1} stock={stock}/>
         </div>
     )
 }
