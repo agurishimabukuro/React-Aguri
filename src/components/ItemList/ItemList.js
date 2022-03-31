@@ -4,54 +4,42 @@ import { productList } from '../../data/data.js'
 
 import './ItemList.css'
 
-const ItemList = () => {
-    const [products, setProducts] = useState([]);
+import { useParams } from 'react-router-dom'
 
-    const getProducts = new Promise ((resolve, reject) => {
-        setTimeout(() => {
-            resolve(productList);
-        }, 2000);
-    });
+const ItemList = ({children}) => {
+    const { Id } = useParams()
 
-    const getProductsFromDB = async () => {
-        try {
-            const result = await getProducts;
-            setProducts(result);
-        } catch (error) {
-            console.log(error);
-            alert('No podemos mostrar los productos en este momento');
-        }
-    };
+    const [products, setProducts] = useState([])
 
-    useEffect (() => {
-        getProductsFromDB();
-    },[]);
+    const getProducts = () => {
+        return new Promise((resolve, reject) => {
+            return resolve(productList)
+        })
+    } 
 
-        return(
-            <div className="product-list-container">
-                {products.lenght ? ( 
-                <>
-                {products.map((product)=> {
-                    return (
-                        <div key={product.id}>
-                            <Item
-                            title={product.title}
-                            price={product.price}
-                            size={product.size}
-                            stock={product.stock}
-                            id={product.id}
-                            />
-                        </div>
-                    );
-                })
+    useEffect( () => {
+        setProducts([])
+        getProducts().then( (productos) => {
+            filterProductById(productos, Id)
+        })
+    }, [Id])
+
+
+    const filterProductById = (array , category) => {
+        return array.map( (product, i) => {
+            if(product.Id === Id) {
+                return setProducts(products => [...products, product]);
             }
-        </>
-        ) : (
-            <p>Cargando productos</p>
-        )
+        })
     }
-    </div>
-    );
-};
+
+    return(
+        <div className="container-cards">
+            <h2> Productos en Oferta</h2>
+            {console.log("products: ", products)}
+            {products.map( ( product ) =>  <Item data={product} key={product.id}/>)}
+        </div>
+    ) 
+}
 
 export default ItemList;
