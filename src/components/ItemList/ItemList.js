@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
-import { productList } from '../../data/data'
+import { productList } from '../../data/data.js'
 
 import './ItemList.css'
 
@@ -23,10 +23,10 @@ const ItemList = () => {
     useEffect (() => {
         getProductsFromDB();
     },[]);
-    return(
-        <div className="product-list-container">
-            {products.lenght ? ( 
-                <>
+        return(
+            <div className="product-list-container">
+                {products.lenght ? ( 
+                    <>
                 {products.map((product)=> {
                     return (
                         <div key={product.id}>
