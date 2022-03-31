@@ -6,11 +6,13 @@ import './ItemList.css'
 
 const ItemList = () => {
     const [products, setProducts] = useState([]);
+
     const getProducts = new Promise ((resolve, reject) => {
         setTimeout(() => {
             resolve(productList);
         }, 2000);
     });
+
     const getProductsFromDB = async () => {
         try {
             const result = await getProducts;
@@ -20,13 +22,15 @@ const ItemList = () => {
             alert('No podemos mostrar los productos en este momento');
         }
     };
+
     useEffect (() => {
         getProductsFromDB();
     },[]);
+
         return(
             <div className="product-list-container">
                 {products.lenght ? ( 
-                    <>
+                <>
                 {products.map((product)=> {
                     return (
                         <div key={product.id}>
@@ -34,8 +38,8 @@ const ItemList = () => {
                             title={product.title}
                             price={product.price}
                             size={product.size}
-                            // stock={product.stock}
-                            // id={product.id}
+                            stock={product.stock}
+                            id={product.id}
                             />
                         </div>
                     );
