@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Product from './Product';
+import Item from './item';
 import { productList } from '../data/data.js';
 
 
@@ -31,7 +31,7 @@ const ItemList = () => {
             products.map((product) => {
                 return (
                     <div key={product.id}>
-                    <Product
+                    <Item
                         title={product.title}
                         price={product.price}
                         stock={product.stock}
