@@ -35,7 +35,6 @@ const ItemList = ({children}) => {
 
     return(
         <div className="container-cards">
-            <h2> Productos en Oferta</h2>
             {console.log("products: ", products)}
             {products.map( ( product ) =>  <Item data={product} key={product.id}/>)}
         </div>

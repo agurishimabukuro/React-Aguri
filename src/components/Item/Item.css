@@ -34,4 +34,9 @@
     padding-top: 10px;
     color: var(--primary-color);
     background-color: var(--just-white);
-} 
+}
+
+img { 
+    height: 150px;
+    width: 150px;
+}
