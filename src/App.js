@@ -7,7 +7,6 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <h1>Productos destacados</h1>
       <ItemListConteiner className="item-list"/>
     </div>
   );

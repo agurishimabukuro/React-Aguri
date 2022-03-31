@@ -2,7 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import Button from '@mui/material/Button';
 
-export const Product = ({title, price, size, id, stock}) => {
+const Item = ({title, price, size, id, stock}) => {
 
     return ( <div className = "product-item" >
         <h2> {title} </h2> 
@@ -48,3 +48,5 @@ const ItemCount = ({initial,stock,onAdd}) => {
     </div>
     );
 };
+
+export default Item
