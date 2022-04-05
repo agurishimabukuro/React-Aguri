@@ -1,11 +1,11 @@
-import ListProducts from '../components/ListProducts/ListProducts';
+import ItemListConteiner from '../components/ItemListConteiner/ItemListConteiner'
 
 import Container from '@mui/material/Container';
 
 const HomePage = () => {
     return(
         <Container className='container-general'> 
-            <ListProducts />
+            <ItemListConteiner />
             
         </Container>
     )

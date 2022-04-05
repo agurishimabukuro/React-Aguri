@@ -30,13 +30,17 @@ ul.navbar li {
 .product-item{
   float: left;
   border: 1px solid #ababab;
-  width: 200px;
+  width: 285px;
+  height: 500px;
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 25px;
   box-shadow: 1px 1px 5px #0000002b;
   border-radius: 5px;
   padding: 10px;
+  align-items: center;
   text-align: center;
+  display: grid;
+  grid-row: auto;  
 }
 .count-container__contador {
   display: grid;
@@ -75,3 +79,8 @@ ul.navbar li {
   color: var(--primary-color);
   background-color: var(--just-white);
 } 
+
+h2{
+  text-decoration: underline;
+}
+

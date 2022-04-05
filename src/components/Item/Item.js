@@ -9,7 +9,7 @@ export default function Item({data}) {
         <h2> {title} </h2> 
         <p> Precio: $ {price} </p> 
         <p> Tamaño: {size} </p> 
-        <img src={img}></img>
+        <span><img src={img} alt={title}></img></span>
 
         <ItemCount initial={1} stock={stock}/>
         </div>
