@@ -1,4 +1,4 @@
-export const productList = [
+const mockProductos = [
     {
       title: 'Fernet',
       price: 540,
@@ -36,3 +36,5 @@ export const productList = [
       category: 'Bebidas sin alcohol',
     },
   ];
+
+  export default mockProductos

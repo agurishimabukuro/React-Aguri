@@ -1,9 +1,10 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+// Components
 import NavBar from './components/NavBar/NavBar'
-import ItemListConteiner from './components/ItemListConteiner/ItemListConteiner';
-// import Product from './components/Product/Product'
+
+// pages
 import HomePage from './pages/Home'
 import ContactPage from './pages/Contact'
 import NotFoundPage from './pages/NotFound'

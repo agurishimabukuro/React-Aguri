@@ -14,7 +14,6 @@ const ItemDetailContainer = () => {
     useEffect( () => {
         getProduct().then( (producto) => {
             setDataProduct(producto)
-            //console.log("Llamada al mock:", producto)
         }).finally( () => {
             console.log("Termino la llamada")
         })

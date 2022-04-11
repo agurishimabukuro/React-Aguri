@@ -2,14 +2,14 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import {productList} from '../../src/data/data.js'
+import mockProductos from '../../src/data/productsMock'
 
 const DetailPage = () => {
     const { id, category } = useParams()
     const [product, setProduct] = useState({})
 
     useEffect( () => {
-        filterProductById(productList, id)
+        filterProductById(mockProductos, id)
     }, [id])
 
     const filterProductById = (array , id) => {
@@ -24,7 +24,7 @@ const DetailPage = () => {
         <Container className='container-general'> 
             <div className='container-detail'>
             <div className='container-detail__img'>
-                <img src={`../${product.image}`}/>
+                <img src={`../${product.img}`}/>
             </div>
             <div className='container-detail__info'>
                 <h3 className='info__title'>{product.title}</h3>
