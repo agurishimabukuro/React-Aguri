@@ -1,8 +1,8 @@
 import React from 'react';
 import ItemCount from '../ItemCount/ItemCount.js'
-import './Item.css';
+import './Card.css';
 
-export default function Item({data}) {
+export default function Card({data}) {
     const{title, price, size, id, stock,img} = data 
 
     return ( <div className = "product-item" >
