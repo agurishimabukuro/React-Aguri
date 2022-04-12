@@ -25,7 +25,7 @@ const DetailPage = () => {
         <Container className='container-general'> 
             <div className='container-detail'>
             <div className='container-detail__img'>
-                <img src={`../${product.img}`}/>
+                <img src={`../${product.image}`}/>
             </div>
             <div className='container-detail__info'>
                 <h3 className='info__title'>{product.title}</h3>
@@ -34,7 +34,8 @@ const DetailPage = () => {
                 <p className='info__text'>{product.size}</p>
                 <p className='info__subtitle'>DETALLE</p>
                 <p className='info__text detail__text'>Fina bebida digestiva a base de hierbas.</p>
-                <ItemCount><Button className='detail__btn-buy'>COMPRAR</Button></ItemCount>
+                <ItemCount></ItemCount>
+                <Button className='detail__btn-buy'>COMPRAR</Button>
             </div>
             </div>
         </Container>
