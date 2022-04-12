@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import mockProductos from '../../src/data/productsMock'
+import ItemCount from '../components/ItemCount/ItemCount'
 
 const DetailPage = () => {
     const { id, category } = useParams()
@@ -33,7 +34,7 @@ const DetailPage = () => {
                 <p className='info__text'>{product.size}</p>
                 <p className='info__subtitle'>DETALLE</p>
                 <p className='info__text detail__text'>Fina bebida digestiva a base de hierbas.</p>
-                <Button className='detail__btn-buy'>COMPRAR</Button>
+                <ItemCount><Button className='detail__btn-buy'>COMPRAR</Button></ItemCount>
             </div>
             </div>
         </Container>
