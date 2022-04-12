@@ -7,6 +7,7 @@ const mockProductos = [
       id: 1,
       image: 'fernet.jpg',
       category: 'Bebidas con alcohol',
+      detalle: 'Fina de bebida digestiva de hierbas.'
     },
     {
       title: 'Vino',
@@ -16,6 +17,7 @@ const mockProductos = [
       id: 2,
       image: 'rutini.jpg',
       category: 'Bebidas con alcohol',
+      detalle: 'De las mejores cosechas llega este vino de alta categoría para deleitar el paladar.'
     },
     {
       title: 'Cerveza',
@@ -25,6 +27,7 @@ const mockProductos = [
       id: 3,
       image: 'cerveza.jpg',
       category: 'Bebidas con alcohol',
+      detalle: 'Cerveza de la mejor malta para acompañar todo tipo de eventos'
     },  
     {
       title: 'Gaseosa',
@@ -34,6 +37,7 @@ const mockProductos = [
       id: 4,
       image: "gaseosa.jpg",
       category: 'Bebidas sin alcohol',
+      detalle: 'La mejor bebida del mercado para el deleite de todo público'
     },
   ];
 

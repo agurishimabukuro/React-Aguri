@@ -33,7 +33,7 @@ const DetailPage = () => {
                 <p className='info__subtitle'>Tamaño</p>
                 <p className='info__text'>{product.size}</p>
                 <p className='info__subtitle'>DETALLE</p>
-                <p className='info__text detail__text'>Fina bebida digestiva a base de hierbas.</p>
+                <p className='info__text detail__text'>{product.detalle}</p>
                 <ItemCount></ItemCount>
                 <Button className='detail__btn-buy'>COMPRAR</Button>
             </div>
