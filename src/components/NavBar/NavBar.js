@@ -59,7 +59,7 @@ function NavBar() {
                     )
                 })} */}
             </ul>
-            <Button><CartWidget/></Button>
+            <CartWidget/>
         </header>
     )
 }

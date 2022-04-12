@@ -1,47 +1,44 @@
-.count-container__contador {
-    display: grid;
-    grid-template: 1fr / 1fr 1fr 1fr;
-    width: 140px;
-    height: 50px;
-    font-weight: 600;
-    font-size: 1.4rem;
-    margin: 40px auto 0;
-}
-
-.count-container__button {
-    color: var(--primary-color);
+.card-item > img {
     width: 100%;
-    height: 100%;
-    border: 1px solid var(--border-color);
-    font-size: 1.6rem;
-    transition: all 250ms ease-out;
 }
 
-.count-container__button:hover {
-    border: none;
-    color: var(--just-white);
-    background-color: var(--primary-color);
+.container-card-data {
+    float: left;
+    width: 100%;
+    padding: 10px;
 }
 
-.count-container__button[disabled] {
-    color: var(--border-color);
-    background-color: transparent;
-    border: 1px solid var(--border-color);
+.container-card-data h2 {
+    font-size: 19px;
+    letter-spacing: 2px;
+    margin: 0px;
+    font-weight: 400;
+    margin-bottom: 10px;
 }
 
-.count-container__qty {
-    height: 100%;
-    padding-top: 10px;
-    color: var(--primary-color);
-    background-color: var(--just-white);
+.container-card-data p {
+    font-size: 14px;
+    font-weight: 300;
 }
 
-img { 
-    height: 150px;
-    width: 150px;
-    align-items: center;
+.container-cards .card-item:nth-of-type(1) {
+    margin-left: 0px;
 }
 
-span{
-    align-items: center;
+.card-item img {
+    width: 100%;
+}
+
+.card-item__img {
+    height: 380px;
+    overflow: hidden;
+}
+
+.container-cards .card-item:nth-of-type(3n + 1) {
+    margin-left: 0px;
+}
+
+.card-item:hover {
+    cursor: pointer;
+    transform: scale(1.05);
 }
