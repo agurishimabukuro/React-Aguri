@@ -20,7 +20,7 @@ const CartPage = () => {
                     <h2>Quitar</h2>
                 </div>
                 {cartProducts.map( (cartProduct) => {
-                    const { price, image, title, talle, id } = cartProduct
+                    const { price, image, title, size, id } = cartProduct
                     return(
                         <div className='cart-table__content' key={id}>
                             <div className='cart-table__content-img'>
@@ -28,7 +28,7 @@ const CartPage = () => {
                             </div>
                             <div className='cart-table__content-title'>
                                 <p>{title}</p>
-                                <span>Talle : <b>{talle}</b></span>
+                                <span>Tamaño : <b>{size}</b></span>
                             </div>
                             <div className='cart-table__content-price'>
                                 <p>$ {price}</p>
@@ -50,11 +50,11 @@ const CartPage = () => {
                     <div className='cart-checkout-details'>
                         <div className='cart-checkout__subtotal'>
                             <p>Subtotal</p>
-                            <span>$ {calculeTotalPrice}</span>
+                            <span>$ {calculeTotalPrice()}</span>
                         </div>
                         <div className='cart-checkout__total'>
                             <p>Total</p>
-                            <span>$ {calculeTotalPrice}</span>
+                            <span>$ {calculeTotalPrice()}</span>
                         </div>
                         <Button className='btn-custom'>Completar Compra</Button>
                     </div>

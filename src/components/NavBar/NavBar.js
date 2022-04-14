@@ -41,7 +41,7 @@ function NavBar() {
                 </li>
                 <li>
                     <Button>
-                        <Link to={':/category'}>Productos</Link>
+                        <Link to={'/productos/1'}>Productos</Link>
                     </Button>
                 </li>
                 <li>
