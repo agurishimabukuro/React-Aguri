@@ -41,7 +41,7 @@ function NavBar() {
                 </li>
                 <li>
                     <Button>
-                        <Link to={'/productos/1'}>Productos</Link>
+                        <Link to={'/productos/zfxKjpADLsNU1KxVgt5U'}>Productos</Link>
                     </Button>
                 </li>
                 <li>

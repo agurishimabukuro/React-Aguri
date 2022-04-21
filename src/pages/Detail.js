@@ -1,27 +1,39 @@
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
-import mockProductos from '../../src/data/productsMock'
+// import mockProductos from '../../src/data/productsMock'
 import ItemCount from '../components/ItemCount/ItemCount'
 import CartContext from '../context/CartContext'
+import {doc, getDoc} from 'firebase/firestore'
+import db from '../firebase'
 
 const DetailPage = () => {
     const { cartProducts, addProductToCart } = useContext(CartContext)
-    const { id, category } = useParams()
+    const { id } = useParams()
+    const navigate = useNavigate()
     const [product, setProduct] = useState({})
 
-    useEffect( () => {
-        filterProductById(mockProductos, id)
-    }, [id])
+    const getProduct = async () => {
+        const docRef = doc(db, "productos", id);
+        const docSnap = await getDoc(docRef);
 
-    const filterProductById = (array , id) => {
-        return array.map( (product) => {
-            if(product.id == id) {
-                return setProduct(product)
-            }
-        })
+        if (docSnap.exists()){
+            console.log("Document data: ", docSnap.data());
+            let product = docSnap.data()
+            product.id = docSnap.id 
+            setProduct(product)
+        }else {
+            // doc.data() will be undefined in this case 
+            console.log("No such document!");
+            navigate('/error')
+        }
     }
+
+    useEffect( () => {
+        getProduct()
+    }, [id])
 
     const addToCart = (e) => {
         e.stopPropagation()  
