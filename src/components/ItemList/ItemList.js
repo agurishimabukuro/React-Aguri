@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../Card/Card';
 import mockProductos from '../../data/productsMock'
+import db from '../../firebase'
+import { collection, getDocs} from 'firebase/firestore'
 
 import './ItemList.css'
 
@@ -11,13 +13,21 @@ const ItemList = ({children}) => {
 
     const [products, setProducts] = useState([])
 
-    const getProducts = () => {
-        return new Promise((resolve, reject) => {
-            return setTimeout( () => { 
-                resolve(mockProductos)
-            }, 2000)
-        })
+    const getProducts = async () => {
+        const itemsCollection = collection(db, 'productos')
+        const productSnapshot = await getDocs(itemsCollection)
+        console.log("productSnapshot:  ", productSnapshot)
+        const productList = productSnapshot.docs.map((doc) => {
+            let product = doc.data()
+            product.id = doc.id 
+            console.log("product: ", product)    
+            return product
+            } 
+        )
+        return productList
     }
+
+
 
     useEffect( () => {
         setProducts([])
