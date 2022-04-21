@@ -52,7 +52,7 @@ const ContactPage = () => {
                     <form onSubmit={handleSubmit}>
                         <input type="text" onKeyDown={handleChange} value={value} placeholder='Nombre'/>
                         <input type="text" placeholder='Apellido'/>
-                        <input type="mail" placeholder='mail'/>
+                        <input type="mail" placeholder='E-mail'/>
 
                         <Button onClick={resetForm}>Limpiar Formulario</Button>
                         <Button type="submit">Enviar</Button>
