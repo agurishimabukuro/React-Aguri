@@ -30,6 +30,7 @@ const CartPage = () => {
             total : totalPrice,
             }
 )
+const [successOrder, setSuccessOrder] = useState()
     console.log("Order: ", order)
 
 
@@ -47,7 +48,7 @@ const CartPage = () => {
         const orderFirebase = collection(db, 'ordenes')
         const orderDoc = await addDoc(orderFirebase, prevOrder)
         console.log("orden generada: ", orderDoc.id)
-        // setSuccessOrder(orderDoc.id)
+        setSuccessOrder(orderDoc.id)
     }
 
     const handleChange = (e) => {
@@ -112,17 +113,25 @@ const CartPage = () => {
                 </div>
             </div>
             <ModalCustom handleClose={() => setOpenModal(false)} open={openModal}> 
-                <h2>USUARIO </h2>
-                    <form onSubmit={handleSubmit}>
-                        <input type="text" name='name' placeholder='Nombre' 
-                        onChange={handleChange} value={formData.name}/>
-                        <input type="number" name='phone' placeholder='Telefono' 
-                        onChange={handleChange} value={formData.phone}/>
-                        <input type="mail" name='email' placeholder='E-mail' 
-                        onChange={handleChange} value={formData.email}/>
+                {successOrder ? (
+                    <div> 
+                        <h3>Orden generada con éxito</h3>
+                        <span>Su número de orden es: {successOrder} </span>
+                    </div>
+                ) : (
+                    <><h2>Usuario </h2><form onSubmit={handleSubmit}>
+                            <input type="text" name='name' placeholder='Nombre'
+                                onChange={handleChange} value={formData.name} />
+                            <input type="number" name='phone' placeholder='Telefono'
+                                onChange={handleChange} value={formData.phone} />
+                            <input type="mail" name='email' placeholder='E-mail'
+                                onChange={handleChange} value={formData.email} />
 
-                        <Button type="submit">Enviar</Button>
-                    </form>
+                            <Button type="submit">Enviar</Button>
+                        </form></>
+
+                )}
+                    
             </ModalCustom> 
         </Container>
     )
