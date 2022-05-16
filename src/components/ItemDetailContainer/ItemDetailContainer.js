@@ -1,30 +1,44 @@
-import { useState, useEffect } from "react";
-import ItemDetail from '../ItemDetail/ItemDetail'
-import mockProducto from '../../data/mockProducto'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import {
+	getDocs,
+	collection,
+	query,
+	where,
+	documentId,
+} from "firebase/firestore";
+import db  from "../../firebase";
+import ItemDetail from "../ItemDetail/ItemDetail";
+// import Loading from "../Loading/Loading";
+import "./ItemDetailContainer.css";
 
 const ItemDetailContainer = () => {
-    const [dataProduct, setDataProduct] = useState({})
+	const [itemDetail, setItemDetail] = useState([]);
+	const paramsID = useParams();
 
-    const getProduct = () => {
-        return new Promise((resolve, reject) => {
-            return resolve(mockProducto)
-        })
-    }
+	useEffect(() => {
+		const getProducts = async () => {
+			const q = query(
+				collection(db, "productos"),
+				where(documentId(), "==", paramsID.id)
+			);
+			const docs = [];
+			const querySnapshot = await getDocs(q);
+			querySnapshot.forEach((doc) => {
+				docs.push({ ...doc.data(), id: doc.id });
+			});
+			setItemDetail(docs);
+		};
+		getProducts();
+	}, [paramsID]);
 
-    useEffect( () => {
-        getProduct().then( (producto) => {
-            setDataProduct(producto)
-        }).finally( () => {
-            console.log("Termino la llamada")
-        })
-    }, [])
+	return (
+		<div className="itemDetailContainer">
+			{itemDetail.map((productos) => {
+				return <ItemDetail key={productos.id} data={productos} />;
+			})}
+		</div>
+	);
+};
 
-    return (
-        <>
-            
-            <ItemDetail data={dataProduct}/>
-        </>
-    )
-}
-
-export default ItemDetailContainer
+export default ItemDetailContainer;

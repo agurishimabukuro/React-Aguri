@@ -1,67 +1,45 @@
-import React from 'react'
-import Button from '@mui/material/Button';
-import Logo from './././img/inter.png'
-import "./NavBar.css"
-import CartWidget from '../CartWidget/CartWidget'
-import { Link } from 'react-router-dom'
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import { Nav, Navbar } from "react-bootstrap";
+import { Link, Routes, Route } from "react-router-dom";
+import CartWidget from "../CartWidget/CartWidget";
+import "./NavBar.css";
 
-function NavBar() {
-    // const pages = [
-    //     {
-    //         title:'Home',
-    //         url: '/'
-    //     },
-    //     {
-    //         title:'Nosotros',
-    //         url: '/nosotros'
-    //     }, 
-    //     {
-    //         title: 'Productos',
-    //         url: '/productos'
-    //     },
-    //     {
-    //         title: 'Contacto',
-    //         url: '/contacto'
-    //     }]
-    return(
-        <header className='main-header'>
-            <div className="container-logo">
-                <img src={Logo} alt="logo" className="logoImg"></img>
-            </div>
-            <ul className='navbar'>
-                <li>
-                    <Button>
-                        <Link to={'/'}> Home </Link>
-                    </Button>
-                </li>
-                <li>
-                    <Button>
-                        <Link to={'/About'}>Nosotros </Link>
-                    </Button>
-                </li>
-                <li>
-                    <Button>
-                        <Link to={'/productos/zfxKjpADLsNU1KxVgt5U'}>Productos</Link>
-                    </Button>
-                </li>
-                <li>
-                    <Button>
-                        <Link to={'/Contact'}> Contacto</Link> 
-                    </Button>
-                </li>
-                {/* {pages.map((page) => {
-                    return(
-                        <li>
-                            <Button className="custom-btn" variant="contained">
-                                <Link to={page.url}>{page.title}</Link>
-                            </Button>
-                        </li>
-                    )
-                })} */}
-            </ul>
-            <CartWidget/>
-        </header>
-    )
+export default function NavBar() {
+	return (
+		<div className="navContainer">
+			<Navbar
+				bg="info"
+				variant="dark"
+				sticky="top"
+				expand="md"
+				collapseOnSelect
+			>
+				<Link className="navLogo" to="/">
+					{" "}
+					Bebidas modo diablo{" "}
+				</Link>
+				<Navbar.Toggle className="coloring" />
+				<Navbar.Collapse>
+					<Nav>
+					{/* <Link className="navLinks" to="/categoria/BebidasSinAlcohol">
+							{" "}
+							Bebidas Sin Alcohol{" "}
+						</Link>
+						<Link className="navLinks" to="/categoria/BebidasConAlcohol">
+							{" "}
+							Bebidas Con Alcohol{" "}
+						</Link> */}
+						<Link className="navLinks" to="/contacto">
+							{" "}
+							Contacto{" "}
+						</Link>
+						<Link className="navLinks" to="/carrito">
+							<CartWidget />
+						</Link>
+					</Nav>
+				</Navbar.Collapse>
+			</Navbar>
+		</div>
+	);
 }
-
-export default NavBar;

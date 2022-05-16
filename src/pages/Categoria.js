@@ -1,7 +1,8 @@
 import React from "react";
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 
-const HomePage = () => {
+const Categoria = () => {
+
     return (
         <div>
             <ItemListContainer />
@@ -9,4 +10,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+export default Categoria

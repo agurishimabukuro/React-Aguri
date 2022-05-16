@@ -10,7 +10,7 @@ header.main-header {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  background: black;
+  background: darkblue;
 }
 
 ul.navbar {
@@ -24,7 +24,7 @@ ul.navbar li {
 
 header.main-header li button {
   background: none;
-  font-family: 'Montserrat';
+  font-family: 'Trebuceht MS' !important;
   transition: all 0.2s ease;
   color: white;
 }
@@ -85,11 +85,11 @@ header.main-header li button:hover {
 }
 
 .container-detail .detail__btn-buy {
-  background: black;
+  background: darkblue;
   color: white;
   width: 100%;
   border-radius: 0px;
-  font-family: 'Montserrat';
+  font-family: 'trebuchet';
   font-size: 16px;
 }
 
@@ -179,11 +179,11 @@ form > button:hover {
   color: white !important;
 }
 .btn-custom,.btn-custom:hover {
-  background: black !important;
+  background: darkblue !important;
   border-radius: 0px !important;
   color: white !important;
   padding: 5px 20px !important;
-  font-family: 'Montserrat' !important;
+  font-family: 'Trebuchet MS' !important;
   width: 100% !important;
 }
 .btn-custom a {

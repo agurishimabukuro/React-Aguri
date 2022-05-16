@@ -1,55 +1,19 @@
-import React,{ useState, useEffect, useContext } from 'react'
-import CartContext from '../../context/CartContext'
+import React from "react";
+import { Link } from "react-router-dom";
+import { Card, Button } from "react-bootstrap";
+import "./Card.css";
 
-import './Card.css'
-import ItemCount from '../ItemCount/ItemCount'
-import { Link, useNavigate } from 'react-router-dom'
-import Button from '@mui/material/Button';
+const Item = ({ data }) => (
+	<Card className="cardContainer">
+		<Card.Img className="cardImage" src={data.image} />
+		<Card.Body className="cardBody">
+			<Card.Title className="cardTitle">{data.title}</Card.Title>
+			<Card.Text className="cardPrice">$ {data.price}</Card.Text>
+			<Link to={`/${data.id}`} style={{ textDecoration: "none" }}>
+				<Button className="cardVerMas">Ver más detalles</Button>
+			</Link>
+		</Card.Body>
+	</Card>
+);
 
-
-export default function Card({ data, action }) {
-
-    const navigate = useNavigate();
-    const { cartProducts, addProductToCart } = useContext(CartContext)
-    const { title, price, size, stock, image, id } = data
-    const [ count, setCount ] = useState(1)
-    const [ countTest, setCountTest ] = useState(1)
-
-    useEffect( () => {
-        console.log("cartProducts:", cartProducts)
-        const onScrollWindow = () => {
-            if(window.scrollY > 100 ){
-                console.log("Scroll mayor a 100")
-            }
-        }
-        window.addEventListener("scroll", onScrollWindow)
-        
-        return () => {
-            window.removeEventListener("scroll", onScrollWindow)
-        }
-        
-    }, [])
-
-    const changePage = () => {
-        navigate(`/productos/${id}`)
-    }
-    const addToCart = (e) => {
-        e.stopPropagation()  
-        console.log("Productos agregados:", cartProducts) 
-        addProductToCart(data)
-    }
-    return(
-       
-        <div className="card-item" onClick={changePage}>
-                <div className='card-item__img'>
-                    <img src={`./${image}`} alt={image} />
-                </div>
-                <div className='container-card-data'>
-                    <h2>{title}</h2>
-                    <p>Precio : $ {price}</p>
-                    <p>Tamaño : {size}</p>
-                    <Button onClick={addToCart} className="btn-custom">Comprar</Button>
-                </div>
-        </div>
-    )
-}
+export default Item;
