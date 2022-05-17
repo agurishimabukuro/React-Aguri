@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { Nav, Navbar } from "react-bootstrap";
-import { Link, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import "./NavBar.css";
 
@@ -22,14 +22,6 @@ export default function NavBar() {
 				<Navbar.Toggle className="coloring" />
 				<Navbar.Collapse>
 					<Nav>
-					{/* <Link className="navLinks" to="/categoria/BebidasSinAlcohol">
-							{" "}
-							Bebidas Sin Alcohol{" "}
-						</Link>
-						<Link className="navLinks" to="/categoria/BebidasConAlcohol">
-							{" "}
-							Bebidas Con Alcohol{" "}
-						</Link> */}
 						<Link className="navLinks" to="/contacto">
 							{" "}
 							Contacto{" "}
